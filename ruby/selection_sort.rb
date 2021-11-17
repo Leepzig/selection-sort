@@ -1,5 +1,13 @@
 def selection_sort(arr)
   # type your code in here
+  new_arr = []
+  length = arr.length
+  length.times do 
+    min_index = arr.index(arr.min())
+    min_el = arr.slice!(min_index)
+    new_arr.append(min_el)
+  end
+  return new_arr
 end
 
 if __FILE__ == $PROGRAM_NAME
