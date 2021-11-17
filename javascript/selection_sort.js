@@ -33,11 +33,37 @@ if (require.main === module) {
 
   // BENCHMARK HERE, and print the average runtime
   const longInput = [];
+  const shortInput = []
 
   for (let i = 0; i < 100; ++i) {
     longInput.push(Math.random());
+    
   }
+  for (let i = 0; i < 5; ++i) {
+    shortInput.push(Math.random());
+  }
+  const benchMark = (arr) => {
+  let totalTime = 0
+  console.log(arr)
+
+  for (let i = 0; i < 1000; ++i) {
+    const start = Date.now()
+    selectionSort(arr)
+    const end = Date.now()
+    const time = end - start
+    totalTime += time
+  }
+  console.log("Average Time:", totalTime/1000)
 }
+
+  console.log("ShortInput:")
+  benchMark(shortInput)
+  console.log("Long Input:")
+  benchMark(longInput)
+
+
+}
+
 
 module.exports = selectionSort;
 
